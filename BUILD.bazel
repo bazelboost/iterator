@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_public_hdrs = [
+    "include/boost/*.hpp",
+    "include/boost/iterator/*.hpp",
+    "include/boost/pending/*.hpp",
+]
+
+cc_library(
+    name = "iterator_internal",
+    hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
+    deps = [
+        "@boost//detail",
+    ],
+)
+
+cc_library(
+    name = "iterator",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    hdrs = glob(_public_hdrs),
+    deps = [":iterator_internal"],
+)
