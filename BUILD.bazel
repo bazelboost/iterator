@@ -19,5 +19,11 @@ cc_library(
     visibility = ["//visibility:public"],
     includes = ["include"],
     hdrs = glob(_public_hdrs),
-    deps = [":iterator_internal"],
+    deps = [
+        ":iterator_internal",
+        "@boost//static_assert",
+        "@boost//core",
+        "@boost//mpl",
+        "@boost//type_traits",
+    ],
 )
