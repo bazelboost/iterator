@@ -10,7 +10,7 @@ cc_library(
     name = "iterator_internal",
     hdrs = glob(["include/boost/**/*.hpp"], exclude = _public_hdrs),
     deps = [
-        "@boost//detail",
+        "@boost//libs/detail",
     ],
 )
 
@@ -21,9 +21,9 @@ cc_library(
     hdrs = glob(_public_hdrs),
     deps = [
         ":iterator_internal",
-        "@boost//static_assert",
-        "@boost//core",
-        "@boost//mpl",
-        "@boost//type_traits",
+        "@boost//libs/static_assert",
+        "@boost//libs/core",
+        "@boost//libs/mpl",
+        "@boost//libs/type_traits",
     ],
 )

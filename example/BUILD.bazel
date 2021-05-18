@@ -5,6 +5,6 @@ cc_binary(
     srcs = ["counting_iterator_example.cpp"],
     deps = [
         "//:iterator",
-        "@boost//config",
+        "@boost//libs/config",
     ],
 )
